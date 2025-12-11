@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System;
 using UnityEngine.UI;
+using GameJolt.API;
 public class LevelSelectorScene : MonoBehaviour
 {
     [SerializeField] Button[] levelsButtons;
@@ -12,6 +13,7 @@ public class LevelSelectorScene : MonoBehaviour
         Array.Resize<bool>(ref levelsUnlocked, levelsButtons.Length);
         levelsUnlocked[0] = true;
         UnlockLevels();
+        SetRanking();
     }
     void UnlockLevels()
     {
@@ -33,6 +35,12 @@ public class LevelSelectorScene : MonoBehaviour
         SceneManager.LoadScene(level);
     }
     
-
+    void SetRanking()
+    {
+        int count = PlayerPrefs.GetInt("logged", 0);
+        count++;
+        PlayerPrefs.SetInt("logged", count);
+        Scores.Add(count, $"Logued {count} times", 1048436);
+    }
     
 }

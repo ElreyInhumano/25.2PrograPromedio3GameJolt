@@ -26,6 +26,7 @@ public class Level1Timer : MonoBehaviour
         if(timer <= 0)
         {
             TrophiesUnlocked.totalFalls = PlayerDead.falls;
+            TrophiesUnlocked.realTotalFalls += PlayerDead.falls;
             PlayerDead.falls = 0;
             LevelSelectorScene.levelsUnlocked[1] = true;
             SceneManager.LoadScene("LevelSelectorScene");

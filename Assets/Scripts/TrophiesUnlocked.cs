@@ -3,7 +3,14 @@ using GameJolt.API;
 public class TrophiesUnlocked : MonoBehaviour
 {
     public static bool falls, victory, perfectVictory;
-    public static int totalFalls;
+    public static int totalFalls, realTotalFalls;
+    private void Start()
+    {
+        int count = PlayerPrefs.GetInt("Falls", 0);
+        count = realTotalFalls;
+        PlayerPrefs.SetInt("Falss", count);
+        Scores.Add(count, $"Total falls: {count}", 1048490);
+    }
     void Update()
     {
         if(totalFalls >= 10)

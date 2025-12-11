@@ -25,6 +25,7 @@ public class SaveZone : MonoBehaviour
     void WinLevel2()
     {
         TrophiesUnlocked.totalFalls += PlayerDead.falls;
+        TrophiesUnlocked.realTotalFalls += PlayerDead.falls;
         PlayerDead.falls = 0;
         LevelSelectorScene.levelsUnlocked[2] = true;
         SceneManager.LoadScene("LevelSelectorScene");
@@ -32,6 +33,7 @@ public class SaveZone : MonoBehaviour
     void WinLevel3()
     {
         TrophiesUnlocked.totalFalls += PlayerDead.falls;
+        TrophiesUnlocked.realTotalFalls += PlayerDead.falls;
         PlayerDead.falls = 0;
         TrophiesUnlocked.victory = true;
         if(TrophiesUnlocked.totalFalls <= 0)
