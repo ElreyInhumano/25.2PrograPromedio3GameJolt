@@ -3,8 +3,13 @@ using GameJolt.API;
 public class TrophiesUnlocked : MonoBehaviour
 {
     public static bool falls, victory, perfectVictory;
+    public static int totalFalls;
     void Update()
     {
+        if(totalFalls >= 10)
+        {
+            falls = true;
+        }
         if (LevelSelectorScene.levelsUnlocked[1])
         {
             Trophies.TryUnlock(285496);
